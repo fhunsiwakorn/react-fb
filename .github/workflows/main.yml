@@ -1,4 +1,3 @@
-yml_firebase_deploy.txt
 name: Firebase Deployment
 on:
   push:
@@ -12,10 +11,10 @@ jobs:
       - name: Checkout Repo
         uses: actions/checkout@v2.3.2
       - name: Install Dependencies
-        run: npm install      
+        run: npm install
       - name: Build
         env:
-          CI: true        
+          CI: true
         run: npm run build
       - name: Archive Production Artifact
         uses: actions/upload-artifact@v2
@@ -40,4 +39,3 @@ jobs:
           args: deploy --only hosting
         env:
           FIREBASE_TOKEN: ${{ secrets.FIREBASE_TOKEN }}
-
